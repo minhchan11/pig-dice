@@ -11,16 +11,36 @@
     <title>Pig Dice</title>
   </head>
   <body>
-    <h1 class="jumbotron">Pig Dice game</h1>
-    <div class="player1">
-      <p>Player 1 roll your dice</p>
-      <div class="diceOne">
-        <span id="numberOne"></span>
+    <div class="container">
+
+      <h1 class="jumbotron">Pig Dice game</h1>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="player1">
+            <p>Player 1 roll your dice</p>
+            <div class="diceOne">
+              <span id="numberOne"></span>
+            </div>
+            <p> Your most recent roll was: <span class="numberOne"></span></p>
+            <p> Your total was: <span class="totalOne"></span></p>
+            <span class="btn btn-primary">Roll</span>
+            <button type="submit" class="btn btn-secondary">Hold</button>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+          <div class="player2">
+            <p>Player 2 roll your dice</p>
+            <div class="diceTwo">
+              <span id="numberTwo"></span>
+            </div>
+            <p> Your most recent roll was: <span class="numberTwo"></span></p>
+            <p> Your total was: <span class="totalTwo"></span></p>
+            <span class="btn btn-primary">Roll</span>
+            <button type="submit" class="btn btn-secondary">Hold</button>
+          </div>
+        </div>
       </div>
-      <p> Your most recent roll was: <span class="numberOne"></span></p>
-      <p> Your total was: <span class="totalOne"></span></p>
-      <span class="btn btn-primary">Roll</span>
-      <button type="submit" class="btn btn-secondary">Hold</button>
     </div>
   </body>
 </html>
