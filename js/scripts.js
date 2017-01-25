@@ -1,6 +1,6 @@
 //Defining global variables
 var roll = 0
-
+var score = 0
 
 //Business Logic
 function PigDice(currentRoll, totalRoll) {
@@ -9,7 +9,15 @@ function PigDice(currentRoll, totalRoll) {
 }
 
 
+function generate() {
+  roll = Math.floor(Math.random()*6) + 1
+  score = score +=roll;
+}
 
+PigDice.prototype.totalScore = function() {
+  return this.currentRoll = roll;
+  return this.totalRoll = score;
+}
 
 
 
@@ -17,11 +25,13 @@ function PigDice(currentRoll, totalRoll) {
 
 //User Logic
 $(document).ready(function() {
- roll =  Math.floor(Math.random() * 6) +1;
- rollNumber = roll.toString();
 
   $("#player1Roll").last().click(function() {
-    $(".numberOne").text(rollNumber);
+    generate();
+    $(".numberOne").text(roll);
+    $(".totalOne").text(score);
+
+
   })
 
   $(".playerOne").submit(function(event) {
