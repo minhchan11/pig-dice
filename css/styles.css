@@ -1,3 +1,9 @@
+@font-face {
+      font-family: "dice";
+      src: url("../fonts/dice.otf");
+    }
+
+
 .diceOne {
   width: 150px;
   height: 150px;
@@ -13,4 +19,9 @@
   background-color: rgb(161, 210, 154);
   border-radius: 5px;
   border: 20px;
+}
+
+#numberOne , #numberTwo {
+  font-family: "dice";
+  font-size: 50px;
 }
