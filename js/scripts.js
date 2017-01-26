@@ -19,6 +19,7 @@ PigDice.prototype.totalScore = function() {
     $(".diceTwo,.diceOne").toggle();
   } else if (this.totalRoll > 49) {
     alert("You win!");
+    return false;
   }
 };
 
@@ -27,6 +28,10 @@ function generate1() {
   if (roll1 === 1) {
     score1 += turn1
     turn1 = 0;
+    $("#player2Roll").trigger("click");
+    while (turn2 !== 0 && this.totalRoll > 49 ) {
+      $("#player2Roll").trigger("click");
+    };
   } else {
     turn1  += roll1 ;}
 };
@@ -85,6 +90,13 @@ $(document).ready(function() {
         turn2 = 0;
       } else {
         turn2 +=roll2;}
+        $("#player2Roll").trigger("click")
+        $(".diceOne,.diceTwo").toggle();
+while (turn2 !== 0 && this.totalRoll > 49) {
+  $(".diceOne,.diceTwo").toggle();
+  $("#player2Roll").trigger("click");
+}
+
 
   });
 
