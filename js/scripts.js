@@ -16,24 +16,12 @@ function PigDice(currentRoll, turnRoll, totalRoll) {
 
 PigDice.prototype.totalScore = function() {
   if (this.turnRoll === 0) {
-    $(".diceTwo,.diceOne").toggle();
+  console.log("blah");
   } else if (this.totalRoll > 49) {
     alert("You win!");
+    stopComputer();
     return false;
   }
-};
-
-function generate1() {
-  roll1 = Math.floor(Math.random()*6) + 1
-  if (roll1 === 1) {
-    score1 += turn1
-    turn1 = 0;
-    $("#player2Roll").trigger("click");
-    while (turn2 !== 0 && this.totalRoll > 49 ) {
-      $("#player2Roll").trigger("click");
-    };
-  } else {
-    turn1  += roll1 ;}
 };
 
 function generate2() {
@@ -41,9 +29,32 @@ function generate2() {
   if (roll2 === 1) {
     score2 +=turn2;
     turn2 = 0;
+    stopComputer();
   } else {
     turn2 +=roll2;}
 };
+
+function computer (){setInterval(function(){ $("#player2Roll").trigger("click");
+while (roll2 !== 1 && this.totalRoll < 49) {
+  $("#player2Roll").trigger("click");
+}; }, 500);}
+
+
+function stopComputer() {
+  
+};
+
+function generate1() {
+  roll1 = Math.floor(Math.random()*6) + 1
+  if (roll1 === 1) {
+    score1 += turn1
+    turn1 = 0;
+    computer();
+  } else {
+    turn1  += roll1 ;}
+};
+
+
 
 //User Logic
 $(document).ready(function() {
@@ -79,25 +90,19 @@ $(document).ready(function() {
 
   $("form").submit(function(event) {
     event.preventDefault();
-    $(".diceOne,.diceTwo").toggle();
     if (roll1 === 1) {
       score1 += turn1
       turn1 = 0;
     } else {
-      turn1  += roll1 ;}
+      turn1  += roll1 };
+
       if (roll2 === 1) {
         score2 +=turn2;
         turn2 = 0;
       } else {
         turn2 +=roll2;}
-        $("#player2Roll").trigger("click")
-        $(".diceOne,.diceTwo").toggle();
-while (turn2 !== 0 && this.totalRoll > 49) {
-  $(".diceOne,.diceTwo").toggle();
-  $("#player2Roll").trigger("click");
-}
+        computer();
 
 
-  });
-
+});
 });
